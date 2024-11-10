@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to make an SVG image using JavaScript?</title>
+    <style>
+        .container {
+            text-align: center;
+            position: relative;
+            width: 100vh;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="width: 100px; background-color: aqua; margin-bottom: 200px;" id="1">asdsad</div>
+        <div style="width: 100px; background-color: aqua;" id="2">asdsad2</div>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+
+        // Create an SVG element and set its width and height to cover the area
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute("width", "100%");
+        svg.setAttribute("height", "100%");
+        svg.style.position = "absolute";
+        svg.style.top = "0";
+        svg.style.left = "0";
+
+        // Create the line element
+        const line = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+        
+        // Get the bounding boxes of the divs
+        const div1 = document.getElementById('1');
+        const div2 = document.getElementById('2');
+        const bound1 = div1.getBoundingClientRect();
+        const bound2 = div2.getBoundingClientRect();
+
+        // Set the line's start and end points based on the bounding boxes
+        line.setAttribute("x1", bound1.x);
+        line.setAttribute("y1", bound1.y);
+        line.setAttribute("x2", bound2.x);
+        line.setAttribute("y2", bound2.y);
+        
+        // Set stroke attributes to make the line visible
+        line.setAttribute("stroke", "black");
+        line.setAttribute("stroke-width", "2");
+
+        // Append the line to the SVG and the SVG to the container
+        svg.appendChild(line);
+        container.appendChild(svg);
+    </script>
+</body>
+</html>
