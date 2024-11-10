@@ -32,9 +32,12 @@ export class TreeLevel
     private UpdateMargin()
     {
         this.Element.style["marginTop"] = `${this.inputBox.value}px`;
-        DrawGraph.SVGcontainer.innerHTML = '';
+        let currentTop = window.scrollX;
+        let currentBottom = window.scrollY;
         window.scrollTo(0,0)
         document.dispatchEvent(TreeEvents.ReDrawConnections);
+        window.scrollTo(currentTop,currentBottom);
+
     }
     public AddTreeNode(treeNode : TreeNodeView)
     {

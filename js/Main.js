@@ -8,7 +8,10 @@ let graphDraw = new DrawGraph(Constants.CLASS_NAME_TREE_VIEW);
 graphDraw.DrawBfs(tree.rootNode);
 document.dispatchEvent(TreeEvents.ReDrawConnections);
 window.onresize = () => {
-    DrawGraph.SVGcontainer.innerHTML = '';
+    // DrawGraph.SVGcontainer.innerHTML = '';
+    let currentTop = window.scrollX;
+    let currentBottom = window.scrollY;
     window.scrollTo(0, 0);
     document.dispatchEvent(TreeEvents.ReDrawConnections);
+    window.scrollTo(currentTop, currentBottom);
 };

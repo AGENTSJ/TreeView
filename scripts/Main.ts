@@ -1,6 +1,6 @@
 import { Constants } from "./Constants.js";
 import { DrawGraph } from "./DrawGraph.js";
-import {Tree} from "./Tree.js";
+import { Tree } from "./Tree.js";
 import { TreeEvents } from "./Events.js";
 
 let tree : Tree = new Tree(4,2);
@@ -11,7 +11,10 @@ graphDraw.DrawBfs(tree.rootNode)
 document.dispatchEvent(TreeEvents.ReDrawConnections);
 
 window.onresize = ()=>{    
-    DrawGraph.SVGcontainer.innerHTML = '';
+    // DrawGraph.SVGcontainer.innerHTML = '';
+    let currentTop = window.scrollX;
+    let currentBottom = window.scrollY;
     window.scrollTo(0,0);
     document.dispatchEvent(TreeEvents.ReDrawConnections);
+    window.scrollTo(currentTop,currentBottom);
 }

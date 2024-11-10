@@ -17,7 +17,6 @@ export class DrawGraph
         svg.style.position = "absolute";
         svg.style.top = "0";
         svg.style.left = "0";
-        // svg.style.minHeight="100vh"
         svg.style.pointerEvents = "none";
         DrawGraph.SVGcontainer = svg;
         this.warperElement.appendChild(svg);
