@@ -42,5 +42,6 @@ export class DrawGraph {
                 this.warperElement.appendChild(levelContainer.Element);
             }
         }
+        return rootNodeView;
     }
 }

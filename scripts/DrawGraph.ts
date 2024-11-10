@@ -22,7 +22,7 @@ export class DrawGraph
         this.warperElement.appendChild(svg);
     }
 
-    public  DrawBfs(rootNode : TreeNode  ) : void
+    public DrawBfs(rootNode : TreeNode  ) : TreeNodeView
     {
         let nodeList = new Array<TreeNodeView>();
         let rootNodeView = new TreeNodeView(rootNode); 
@@ -59,5 +59,7 @@ export class DrawGraph
                 this.warperElement.appendChild(levelContainer.Element);
             }
         }
+
+        return rootNodeView;
     }
 }
